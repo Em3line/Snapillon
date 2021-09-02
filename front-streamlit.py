@@ -19,7 +19,7 @@ CSS = """
 st.write('<style>{CSS}</style>', unsafe_allow_html=True)
 
 #titres et textes introductifs
-logo_snapillon = Image.open("raw_data/Docker/snapillon_logo.png")
+logo_snapillon = Image.open("https://storage.googleapis.com/butterfly_project/Streamlite%20images/snapillon_logo.png")
 logo_snapillon  = logo_snapillon.resize((200,210))
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -58,7 +58,7 @@ def background_image_style(path):
     </style>
     '''
     return style
-image_path = "raw_data/Docker/9B2F199E-79BF-4EBD-B729-D518A58D1292_1_105_c.jpeg"
+image_path = "https://storage.googleapis.com/butterfly_project/Streamlite%20images/9B2F199E-79BF-4EBD-B729-D518A58D1292_1_105_c.jpeg"
 image_link = 'https://docs.python.org/3/'
 st.write(background_image_style(image_path), unsafe_allow_html=True)
 

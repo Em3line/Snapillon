@@ -19,7 +19,7 @@ CSS = """
 st.write('<style>{CSS}</style>', unsafe_allow_html=True)
 
 #titres et textes introductifs
-logo_snapillon = Image.open("/Users/prunelle/Downloads/snapillon_logo.png")
+logo_snapillon = Image.open("../raw_data/Docker/snapillon_logo.png")
 logo_snapillon  = logo_snapillon.resize((200,210))
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -58,8 +58,7 @@ def background_image_style(path):
     </style>
     '''
     return style
-image_path = "/Users/prunelle/Downloads/9B2F199E-79BF-4EBD-B729-D518A58D1292_1_105_c.jpeg"
-#image_path = "/Users/prunelle/Downloads/9eb59fed3bfe7fb6ad4cfbb9aaad2b7e.jpg"
+image_path = "../raw_data/Docker/9B2F199E-79BF-4EBD-B729-D518A58D1292_1_105_c.jpeg"
 image_link = 'https://docs.python.org/3/'
 st.write(background_image_style(image_path), unsafe_allow_html=True)
 
@@ -92,7 +91,7 @@ if uploaded_file is not None:
     st.markdown("""# Par ici les résultats !
     """)
     #PICKLE CONVERTION
-    url_image = "raw_data/Docker/test_image_pickle.pkl"
+    url_image = "../raw_data/Docker/test_image_pickle.pkl"
     file = open(url_image, 'wb')
     # Pickle dictionary using protocol 0.
     pickle.dump(uploaded_file, file)

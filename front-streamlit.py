@@ -8,7 +8,7 @@ import requests
 import pickle
 import base64
 
-
+DOCKER = 'eu.gcr.io/wagon-bootcamp-318912/snapillon@sha256:3a5d9c3fa9a979826814fde54250cbeef1b22d28765f5cfa90e8397340a7eb1b'
 #CSS
 
 CSS = """
@@ -91,14 +91,15 @@ if uploaded_file is not None:
     st.markdown("""# Par ici les résultats !
     """)
     #PICKLE CONVERTION
-    url_image = "save_pickle/test_image_pickle.pkl"
+    url_image = DOCKER + "/raw_data/Docker/test_image_pickle.pkl"
     file = open(url_image, 'wb')
     # Pickle dictionary using protocol 0.
     pickle.dump(uploaded_file, file)
     file.close()
 
     parameters2 = dict(url = url_image)
-    url2 = 'http://127.0.0.1:8000/predict-image'
+    url2 = DOCKER + '/predict-image'
+    #url2 = 'http://127.0.0.1:8000/predict-image'
     dico = requests.get(url2, params = parameters2).json()
 
     for j, i in enumerate(dico.keys()):

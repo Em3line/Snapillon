@@ -5,12 +5,12 @@ twine
 wheel>=0.29
 
 # data science
-numpy
-pandas
+#numpy
+#pandas
 #scikit-learn
-tensorflow
+#tensorflow
 #sklearn
-matplotlib
+#matplotlib
 pillow
 
 # tests/linter
@@ -21,8 +21,8 @@ pillow
 #yapf
 
 # API
-fastapi
-uvicorn
+#fastapi
+#uvicorn
 streamlit
 
 # utilities

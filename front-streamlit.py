@@ -91,17 +91,21 @@ if uploaded_file is not None:
     st.markdown("""# Par ici les résultats !
     """)
     #PICKLE CONVERTION
-    url_image = "save_pickle/test_image_pickle.pkl"
-    file = open(url_image, 'wb')
-    # Pickle dictionary using protocol 0.
-    pickle.dump(uploaded_file, file)
-    file.close()
-
-    parameters2 = dict(url = url_image)
-    url2 = 'http://127.0.0.1:8000/predict-image'
+    # url_image = "save_pickle/test_image_pickle.pkl"
+    # file = open(url_image, 'wb')
+    # # Pickle dictionary using protocol 0.
+    # pickle.dump(uploaded_file, file)
+    # file.close()
+    file_as_string = base64.b64encode(uploaded_file.getbuffer())
+    # st.markdown(type(file_as_string))
+    # st.markdown((file_as_string))
+    # st.markdown(file_as_string.decode("utf-8"))
+    parameters2 = dict(string = base64.b64encode(uploaded_file.getbuffer()).decode("utf-8"))
+    url2 = 'http://127.0.0.1:8000/predict-image-str'
     dico = requests.get(url2, params = parameters2).json()
 
     for j, i in enumerate(dico.keys()):
+        st.markdown(dico[i][1])
         st.markdown(f"""## Estimation n°{j+1} : Votre papillon est un *{dico[i][0].replace('_', " ")}*""") #sort le nom de l'espèce en latin
         st.markdown(f"""### *Probabilité de la prédiction : {round(float(i),3)}*""")
         #st.markdown("")

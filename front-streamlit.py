@@ -67,6 +67,7 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 
 uploaded_file = st.file_uploader("", type=['png','jpeg','jpg'])
 
+
 if uploaded_file is not None:
     #file_details = {"FileName":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
     #st.write(file_details)
@@ -91,13 +92,22 @@ if uploaded_file is not None:
     st.markdown("""# Par ici les résultats !
     """)
     #PICKLE CONVERTION
-    url_image = DOCKER + "/raw_data/Docker/test_image_pickle.pkl"
-    file = open(url_image, 'wb')
+    #url_image = DOCKER + "/raw_data/Docker/test_image_pickle.pkl"
+    #file = open(url_image, 'wb')
     # Pickle dictionary using protocol 0.
-    pickle.dump(uploaded_file, file)
-    file.close()
+    #pickle.dump(uploaded_file, file)
+    #file.close()
+    # Charge que jpg
+    with open('image_to_save.jpg', mode = 'w') as file :
+        file.write(upload_file)
+    test = {}
+    with open('image_to_save.jpg', mode = 'rb') as file :
+        image_init = file.read()
+        img = base64.b64encode(image_init)
+    test['img'] = img
+    to_api_convert = json.dumps(test)
 
-    parameters2 = dict(url = url_image)
+    parameters2 = dict(url = to_api_convert)
     url2 = DOCKER + '/predict-image'
     #url2 = 'http://127.0.0.1:8000/predict-image'
     dico = requests.get(url2, params = parameters2).json()

@@ -8,7 +8,7 @@ import requests
 import pickle
 import base64
 
-
+DOCKER = 'https://snapillon-dytlcwlbnq-ew.a.run.app'
 #CSS
 
 CSS = """
@@ -103,6 +103,15 @@ if uploaded_file is not None:
     parameters2 = dict(string = base64.b64encode(uploaded_file.getbuffer()).decode("utf-8"))
     #url2 = 'http://127.0.0.1:8000/predict-image-str'
     url2 = 'https://snapillon-dytlcwlbnq-ew.a.run.app/predict-image-str'
+    #url_image = DOCKER + "/raw_data/Docker/test_image_pickle.pkl"
+    #file = open(url_image, 'wb')
+    # Pickle dictionary using protocol 0.
+    #pickle.dump(uploaded_file, file)
+    #file.close()
+
+    #parameters2 = dict(url = url_image)
+    #url2 = DOCKER + '/predict-image'
+    #url2 = 'http://127.0.0.1:8000/predict-image'
     dico = requests.get(url2, params = parameters2).json()
 
     for j, i in enumerate(dico.keys()):

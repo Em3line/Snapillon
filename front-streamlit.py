@@ -105,10 +105,8 @@ if uploaded_file is not None:
     dico = requests.get(url2, params = parameters2).json()
 
     for j, i in enumerate(dico.keys()):
-        st.markdown(dico[i][1])
         st.markdown(f"""## Estimation n°{j+1} : Votre papillon est un *{dico[i][0].replace('_', " ")}*""") #sort le nom de l'espèce en latin
         st.markdown(f"""### *Probabilité de la prédiction : {round(float(i),3)}*""")
-        #st.markdown("")
         pkl_file = open(dico[i][1], 'rb')
         images = pickle.load(pkl_file)
         pkl_file.close()

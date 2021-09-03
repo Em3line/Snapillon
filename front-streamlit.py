@@ -99,7 +99,7 @@ if uploaded_file is not None:
     #file.close()
     # Charge que jpg
     with open('image_to_save.jpg', mode = 'w') as file :
-        file.write(uploaded_file)
+        file.write(image)
     test = {}
     with open('image_to_save.jpg', mode = 'rb') as file :
         image_init = file.read()

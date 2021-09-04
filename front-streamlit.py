@@ -101,7 +101,7 @@ if uploaded_file is not None:
     # st.markdown((file_as_string))
     # st.markdown(file_as_string.decode("utf-8"))
     parameters2 = dict(string = base64.b64encode(uploaded_file.getbuffer()).decode("utf-8"))
-    #url2 = 'http://localhost:8000/predict-image-str'
+    #url2 = 'http://127.0.0.1:8000/predict-image-str'
     url2 = 'https://snapillon-dytlcwlbnq-ew.a.run.app/predict-image-str'
     #url_image = DOCKER + "/raw_data/Docker/test_image_pickle.pkl"
     #file = open(url_image, 'wb')
@@ -112,7 +112,7 @@ if uploaded_file is not None:
     #parameters2 = dict(url = url_image)
     #url2 = DOCKER + '/predict-image'
     #url2 = 'http://127.0.0.1:8000/predict-image'
-    dico = requests.get(url2, params = parameters2).json()
+    dico = requests.post(url2, params = parameters2).json()
 
     for j, i in enumerate(dico.keys()):
         st.markdown(f"""## Estimation n°{j+1} : Votre papillon est un *{dico[i][0].replace('_', " ")}*""") #sort le nom de l'espèce en latin

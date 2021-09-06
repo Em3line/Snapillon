@@ -88,9 +88,9 @@ if uploaded_file is not None:
     
     print(f"Retour API : {dico}")
     for j, i in enumerate(dico.keys()):
-        st.markdown(f"""## Estimation n°{j+1} : Votre papillon est un *{dico[i][0].replace('_', " ")}*""") #sort le nom de l'espèce en latin
+        st.markdown(f"""## Estimation n°{j+1} : Votre papillon est un *{dico[i].replace('_', " ")}*""") #sort le nom de l'espèce en latin
         st.markdown(f"""### *Probabilité de la prédiction : {round(float(i),3)}*""")
-        mypath = f"raw_data/Docker/Photos/{dico[i][0]}/"
+        mypath = f"raw_data/Docker/Photos/{dico[i]}/"
         images = glob.glob(mypath+'*.JPG')
         col1, col2, col3 = st.columns(3)
         with col1:

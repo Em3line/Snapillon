@@ -72,3 +72,9 @@ mkdir tmp
 cd tmp
 Snapillon-run
 ```
+
+# DOTENV
+
+Créer à la racine du projet un fichier .env qui permet d'accéder à des variables d'environnement dans le code, notamment configurable sur Heroku.
+Les varaibles d'environnement disponibles sont les suivantes : API_URL
+#API_URL=http://127.0.0.1:8000/predict-image-str

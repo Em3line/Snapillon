@@ -5,12 +5,6 @@ twine
 wheel>=0.29
 
 # data science
-#numpy
-#pandas
-#scikit-learn
-#tensorflow
-#sklearn
-#matplotlib
 pillow
 
 # tests/linter
@@ -30,3 +24,4 @@ streamlit
 #joblib
 #memoized-property
 #termcolor
+python-dotenv

@@ -96,6 +96,12 @@ if uploaded_file is not None:
         with col1:
             st.image(images[0])
         with col2:
-            st.image(images[1])
+            try:
+                st.image(images[1])
+            except IndexError:
+                pass
         with col3 :
-            st.image(images[2])
+            try:
+                st.image(images[2])
+            except IndexError:
+                pass

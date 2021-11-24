@@ -1,12 +1,12 @@
-# Data analysis
-- Document here the project: Snapillon
-- Description: Project Description
-- Data Source:
-- Type of analysis:
+# Project:
+- Project name: Snapillon
+- Description: Front (streamlit) of the application named "Snapillon", linked to the API from Butterfly identification project. The application aims to classify butterfly species from photographs. 
 
-Please document the project the better you can.
 
-# Startup the project
+
+
+
+# Setup for the creation of the project
 
 The initial setup.
 
@@ -76,5 +76,5 @@ Snapillon-run
 # DOTENV
 
 Créer à la racine du projet un fichier .env qui permet d'accéder à des variables d'environnement dans le code, notamment configurable sur Heroku.
-Les varaibles d'environnement disponibles sont les suivantes : API_URL
+Les variables d'environnement disponibles sont les suivantes : API_URL
 #API_URL=http://127.0.0.1:8000/predict-image-str
